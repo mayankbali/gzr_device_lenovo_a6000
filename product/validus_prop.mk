@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The Validus Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,13 +12,16 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#
 
-FORCE_32_BIT := true
-BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+# System Properties Needed by ValidusOS
+DEFAULT_ROOT_METHOD := rootless
 
-include device/cyanogen/msm8916-common/BoardConfigCommon.mk
-
-include device/lenovo/a6000/board/*.mk
-
-# inherit from proprietary files
--include vendor/lenovo/a6000/BoardConfigVendor.mk
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.device.chipset=Qualcomm Snapdragon 410 \
+    ro.device.cpu=Quad-core 1.2 GHz Cortex-A53 \
+    ro.device.gpu=Adreno 306 \
+    ro.device.rear_cam=8MP \
+    ro.device.front_cam=2MP \
+    ro.device.screen_res=720 x 1280 \
+    ro.opa.eligible_device=true
